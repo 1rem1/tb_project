@@ -1,0 +1,2 @@
+source /home/manus/esp/tb_project/build/bootloader/gdbinit/symbols
+source /home/manus/esp/tb_project/build/bootloader/gdbinit/connect

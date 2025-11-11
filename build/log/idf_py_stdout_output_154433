@@ -1,0 +1,30 @@
+Command: ninja all
+[1/11] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/app_main.c.obj
+[2/11] Performing build step for 'bootloader'
+[1/1] cd /home/manus/esp/tb_project/build/bootloader/esp-idf/esptool_py && /home/manus/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/manus/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/manus/esp/tb_project/build/bootloader/bootloader.bin
+Bootloader binary size 0x5210 bytes. 0x2df0 bytes (36%) free.
+[3/11] Building C object esp-idf/tb_client/CMakeFiles/__idf_tb_client.dir/tb_client.c.obj
+/home/manus/esp/tb_project/components/tb_client/tb_client.c: In function 'handle_rpc_request':
+/home/manus/esp/tb_project/components/tb_client/tb_client.c:310:12: warning: unused variable 'res' [-Wunused-variable]
+  310 |     cJSON *res = cJSON_CreateObject();
+      |            ^~~
+/home/manus/esp/tb_project/components/tb_client/tb_client.c:309:10: warning: unused variable 'rpc_handled' [-Wunused-variable]
+  309 |     bool rpc_handled = false;
+      |          ^~~~~~~~~~~
+/home/manus/esp/tb_project/components/tb_client/tb_client.c:299:18: warning: unused variable 'params' [-Wunused-variable]
+  299 |     const cJSON *params = cJSON_GetObjectItemCaseSensitive(root, "params");
+      |                  ^~~~~~
+[4/11] No install step for 'bootloader'
+[5/11] Linking C static library esp-idf/tb_client/libtb_client.a
+[6/11] Linking C static library esp-idf/main/libmain.a
+[7/11] Completed 'bootloader'
+[8/11] Generating esp-idf/esp_system/ld/sections.ld
+[9/11] Linking CXX executable tb_project.elf
+[10/11] Generating binary image from built executable
+esptool.py v4.10.dev2
+Creating esp32c3 image...
+Merged 1 ELF section
+Successfully created esp32c3 image.
+Generated /home/manus/esp/tb_project/build/tb_project.bin
+[11/11] cd /home/manus/esp/tb_project/build/esp-idf/esptool_py && /home/manus/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/manus/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/manus/esp/tb_project/build/partition_table/partition-table.bin /home/manus/esp/tb_project/build/tb_project.bin
+tb_project.bin binary size 0x18b820 bytes. Smallest app partition is 0x1e0000 bytes. 0x547e0 bytes (18%) free.

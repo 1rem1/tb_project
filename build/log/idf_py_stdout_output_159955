@@ -1,0 +1,218 @@
+Command: /home/manus/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/manus/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32c3 --revision 3 --decode-panic backtrace /home/manus/esp/tb_project/build/tb_project.elf /home/manus/esp/tb_project/build/bootloader/bootloader.elf -m '/home/manus/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/manus/esp/esp-idf/tools/idf.py'
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xd (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4004c97c
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x15ac
+load:0x403cbf10,len:0xc34
+load:0x403ce710,len:0x2fd0
+entry 0x403cbf1a
+[0;32mI (24) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 11 2025 22:26:54[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (25) boot: efuse block revision: v1.3[0m
+[0;32mI (29) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (32) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (36) boot.esp32c3: SPI Flash Size : 4MB[0m
+[0;32mI (40) boot: Enabling RNG early entropy source...[0m
+[0;32mI (44) boot: Partition Table:[0m
+[0;32mI (47) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (53) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (60) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (66) boot:  2 app0             OTA app          00 10 00020000 001e0000[0m
+[0;32mI (73) boot:  3 app1             OTA app          00 11 00200000 001e0000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (83) esp_image: segment 0: paddr=00020020 vaddr=3c140020 size=3cfa4h (249764) map[0m
+[0;32mI (130) esp_image: segment 1: paddr=0005cfcc vaddr=3fc99800 size=0304ch ( 12364) load[0m
+[0;32mI (132) esp_image: segment 2: paddr=00060020 vaddr=42000020 size=131f00h (1253120) map[0m
+[0;32mI (333) esp_image: segment 3: paddr=00191f28 vaddr=3fc9c84c size=001d0h (   464) load[0m
+[0;32mI (334) esp_image: segment 4: paddr=00192100 vaddr=40380000 size=196dch (104156) load[0m
+[0;32mI (356) esp_image: segment 5: paddr=001ab7e4 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (364) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (364) boot: Disabling RNG early entropy source...[0m
+[0;32mI (374) cpu_start: Unicore app[0m
+[0;32mI (383) cpu_start: Pro cpu start user code[0m
+[0;32mI (383) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (383) app_init: Application information:[0m
+[0;32mI (383) app_init: Project name:     tb_project[0m
+[0;32mI (387) app_init: App version:      1[0m
+[0;32mI (391) app_init: Compile time:     Nov 11 2025 22:26:34[0m
+[0;32mI (396) app_init: ELF file SHA256:  0c78e9d85...[0m
+[0;32mI (400) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (404) efuse_init: Min chip rev:     v0.3[0m
+[0;32mI (408) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (412) efuse_init: Chip rev:         v0.4[0m
+[0;32mI (416) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (422) heap_init: At 3FCA4800 len 0001B800 (110 KiB): RAM[0m
+[0;32mI (427) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (433) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (439) heap_init: At 50000020 len 00001FC8 (7 KiB): RTCRAM[0m
+[0;32mI (446) spi_flash: detected chip: generic[0m
+[0;32mI (448) spi_flash: flash io: dio[0m
+[0;32mI (452) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (458) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (464) coexist: coex firmware version: b0bcc39[0m
+[0;32mI (469) coexist: coexist rom version 9387209[0m
+[0;32mI (473) main_task: Started on CPU0[0m
+[0;32mI (473) main_task: Calling app_main()[0m
+[0;32mI (473) APP: [APP] Startup..[0m
+[0;32mI (473) APP: [APP] Free heap: 231900[0m
+[0;32mI (483) pp: pp rom version: 9387209[0m
+[0;32mI (493) net80211: net80211 rom version: 9387209[0m
+[0;32mI (503) wifi:wifi driver task: 3fcad374, prio:23, stack:6656, core=0[0m
+[0;32mI (503) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (503) wifi:wifi certification version: v7.0[0m
+[0;32mI (503) wifi:config NVS flash: enabled[0m
+[0;32mI (503) wifi:config nano formatting: disabled[0m
+[0;32mI (513) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (513) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (523) wifi:Init management short buffer num: 32[0m
+[0;32mI (523) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (523) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (533) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (533) wifi:Init static rx buffer num: 10[0m
+[0;32mI (543) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (543) wifi_init: rx ba win: 6[0m
+[0;32mI (543) wifi_init: accept mbox: 6[0m
+[0;32mI (553) wifi_init: tcpip mbox: 32[0m
+[0;32mI (553) wifi_init: udp mbox: 6[0m
+[0;32mI (553) wifi_init: tcp mbox: 6[0m
+[0;32mI (553) wifi_init: tcp tx win: 5760[0m
+[0;32mI (563) wifi_init: tcp rx win: 5760[0m
+[0;32mI (563) wifi_init: tcp mss: 1440[0m
+[0;32mI (563) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (573) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (573) wifi_prov_scheme_ble: BT memory released[0m
+[0;32mI (573) WIFI_PROV_MGR: Starting provisioning[0m
+[0;32mI (583) WIFI_PROV_MGR: Development mode: using hard coded salt[0m
+[0;32mI (583) WIFI_PROV_MGR: Development mode: using hard coded verifier[0m
+[0;32mI (593) phy_init: phy_version 1201,bae5dd99,Mar  3 2025,15:36:21[0m
+[0;32mI (633) wifi:mode : sta (8c:d0:b2:a8:fb:f1)[0m
+[0;32mI (633) wifi:enable tsf[0m
+[0;32mI (633) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (633) BLE_INIT: Using main XTAL as clock source[0m
+[0;32mI (643) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:0, SMP:1, CONNECT:1[0m
+[0;32mI (643) BLE_INIT: Bluetooth MAC: 8c:d0:b2:a8:fb:f3[0m
+[0;32mI (673) wifi_prov_mgr: Provisioning started with service name : PROV_A8FBF1 [0m
+[0;32mI (673) WIFI_PROV_MGR: Provisioning started[0m
+[0;32mI (673) WIFI_PROV_MGR: Scan this QR code from the provisioning application for Provisioning.[0m
+[0;32mI (683) QRCODE: Encoding below text with ECC LVL 0 & QR Code Version 10[0m
+[0;32mI (693) QRCODE: {"ver":"v1","name":"PROV_A8FBF1","username":"wifiprov","pop":"abcd1234","transport":"ble"}[0m
+                                          
+  █▀▀▀▀▀█ ███ ▀▄▀▀▀▄▄▄█▄▀▀▄▄▀▀  █▀▀▀▀▀█   
+  █ ███ █ █▄▀█ ▄▄▄█▀▀▀▄▀▀█▄▄ ▄█ █ ███ █   
+  █ ▀▀▀ █ ▄  ▄▄█▀▀▀  ▄▀█▄▀ ▀█▀▄ █ ▀▀▀ █   
+  ▀▀▀▀▀▀▀ ▀▄▀ █ █ █▄▀ ▀▄▀▄▀ ▀▄█ ▀▀▀▀▀▀▀   
+  ▀█  ▀▀▀▄▄▄▄▀▄▄█▄ ▀█▀▄▀██▀▄ ▄▀▄ █▄▀▀▀▀   
+  █▄▀ █ ▀▄▀▀██▀▀ ▀█▄  ▄▄▄▀▄ █▀▀██ ▀█▄█▄   
+  █▀ ▀ ▄▀▀ ▄▄ ▀  █▀██▀▀▀ ▄▀▄  ▄ ▀█▄▀█▄▀   
+   ▄██  ▀██▄▄ ▄ █▀██▀▄▀▄██▀▀▄▀██▄█ █▄     
+  ▄ ▀ ▀ ▀▀▀  ▀▄▀█▄ ▀█▀▀█ █▀▄▄ ▄██▀▄ ▀▀▀   
+    ███▀▀▀█ ▄█▀█▀█▀▄ ▄ █▄▀█ █▀▀█ █▄▀▄▄▄   
+  ▄▀ ▄█▄▀▄▄ ▄ ▀█▄▄█▀ ▀▀▀ ▄ ▄  ▄██▀▄█▀█▀   
+  ▄█▄██ ▀▄▀ ▄ ▄ ▄▀██▀ ▀▄█▀ ▀ ███▄▀ █▄▄▄   
+  ▄ ▄▀▄█▀▀▀█▄▀▄▀▀▄█▀ ▀▀▀█▄█ ▄█▀▀█▀▄▀▀ ▀   
+    ▀ ▀▀▀▀█▄▄█▀█▀▀ ▄ ▄ ██▀ ▀▀█▄ █▄█▄█▀▄   
+  ▀▀▀▀▀▀▀▀▄ ▀ ▀█▄█▄▀▄▀██▀█▄▄▄ █▀▀▀█ ▀▄    
+  █▀▀▀▀▀█ ▄   ▄ ▄███▄▄ ▄ ▀  ▄▀█ ▀ ██▄▄▄   
+  █ ███ █ ▀ █▀▄▀▀▄██▄ ▄▀█▄█ ▄▄████▀▄█▄▄   
+  █ ▀▀▀ █ ▄▀▄█▀█▀▀▄▄▀▄ ████ █ ▄  ▀▄██▄    
+  ▀▀▀▀▀▀▀ ▀▀▀ ▀▀  ▀▀ ▀▀▀  ▀  ▀   ▀▀ ▀▀▀   
+                                          
+
+[0;32mI (933) WIFI_PROV_MGR: If QR code is not visible, copy paste the below URL in a browser.[0m
+https://espressif.github.io/esp-jumpstart/qrcode.html?data={"ver":"v1","name":"PROV_A8FBF1","username":"wifiprov","pop":"abcd1234","transport":"ble"}
+[0;32mI (15343) WIFI_PROV_MGR: BLE transport: Connected![0m
+[0;32mI (16723) security2: Using salt and verifier to generate public key...[0m
+[0;32mI (17173) WIFI_PROV_MGR: Secured session established![0m
+[0;33mW (32593) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (32613) WIFI_PROV_MGR: Received Wi-Fi credentials[0m
+	SSID     : 105B10
+	Password : khongcomatkhau@
+[0;32mI (38543) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (38543) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (38583) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (38643) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (38683) wifi:connected with 105B10, aid = 2, channel 11, BW20, bssid = 94:f7:17:0a:a5:c9[0m
+[0;32mI (38683) wifi:security: WPA2-PSK, phy: bgn, rssi: -33[0m
+[0;32mI (38693) wifi:pm start, type: 1[0m
+
+[0;32mI (38693) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (38693) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (38753) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (38763) wifi:<ba-add>idx:0 (ifx:0, 94:f7:17:0a:a5:c9), tid:7, ssn:0, winSize:64[0m
+[0;32mI (39853) WIFI_PROV_MGR: Connected with IP Address:192.168.1.65[0m
+[0;32mI (39853) esp_netif_handlers: sta ip: 192.168.1.65, mask: 255.255.255.0, gw: 192.168.1.1[0m
+[0;32mI (39853) wifi_prov_mgr: STA Got IP[0m
+[0;32mI (39853) WIFI_PROV_MGR: Provisioning successful[0m
+[0;32mI (39863) TB_CLIENT: TB Client created[0m
+[0;33mW (39863) TB_CLIENT: No token -> fallback to provision[0m
+[0;32mI (39863) TB_CLIENT: Unhandled MQTT event id: 7[0m
+[0;32mI (39883) wifi:<ba-add>idx:1 (ifx:0, 94:f7:17:0a:a5:c9), tid:6, ssn:2, winSize:64[0m
+[0;32mI (39983) wifi:<ba-del>idx:1, tid:6[0m
+[0;32mI (39993) wifi:<ba-add>idx:1 (ifx:0, 94:f7:17:0a:a5:c9), tid:0, ssn:0, winSize:64[0m
+[0;32mI (40533) TB_CLIENT: MQTT connected[0m
+[0;32mI (40533) TB_CLIENT: Starting device provisioning[0m
+[0;32mI (40533) TB_CLIENT: Send request provision: {"deviceName":"ESP_DEVICE_003","provisionDeviceKey":"bxplopnphlyifce1t5hu","provisionDeviceSecret":"nehbgo7f824oj2vztjew"}[0m
+[0;32mI (40913) TB_CLIENT: Unhandled MQTT event id: 3[0m
+[0;33mW (40943) BT_HCI: hci cmd send: disconnect: hdl 0x1, rsn:0x13[0m
+[0;33mW (40963) BT_HCI: hcif disc complete: hdl 0x1, rsn 0x16 dev_find 1[0m
+[0;32mI (41223) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (41223) TB_CLIENT: MQTT data received on topic: /provision/response[0m
+[0;32mI (41223) TB_CLIENT: Provision OK. [0m
+[0;32mI (41223) TB_CLIENT: Save to the NVS. Restart MQTT...[0m
+[0;32mI (41233) TB_CLIENT: Restarting to MQTT with new TOKEN[0m
+[0;32mI (41963) wifi_prov_mgr: Provisioning stopped[0m
+[0;32mI (41963) wifi_prov_scheme_ble: BTDM memory released[0m
+[0;32mI (42243) TB_CLIENT: Unhandled MQTT event id: 7[0m
+[0;32mI (42773) TB_CLIENT: MQTT connected[0m
+[0;32mI (43063) TB_CLIENT: Unhandled MQTT event id: 3[0m
+[0;32mI (43373) TB_CLIENT: Unhandled MQTT event id: 3[0m
+[0;32mI (43373) TB_CLIENT: Unhandled MQTT event id: 3[0m
+[0;32mI (43373) TB_CLIENT: Unhandled MQTT event id: 3[0m
+[0;32mI (44873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (45213) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (49873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (50133) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (54873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (55143) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (59873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (60163) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (64873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (65183) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (69873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (70203) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (74873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (75113) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (79873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (80133) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (84873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (85153) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (89873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (90183) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (94873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (95193) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (99873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (100203) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (104873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (105123) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (109873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (110143) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (114873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (115163) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (119873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (120173) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (124873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (125193) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (129873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (130203) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (134873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (135123) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (139873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (140143) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (144873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (145153) TB_CLIENT: Unhandled MQTT event id: 5[0m
+[0;32mI (149873) TB_CLIENT: Telemetry sent: {"temperature":55.5}[0m
+[0;32mI (150173) TB_CLIENT: Unhandled MQTT event id: 5[0m
