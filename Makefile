@@ -16,6 +16,8 @@ help:
 	@echo "  make monitor        # mở serial monitor (PORT=$(PORT))"
 	@echo "  make erase          # xóa flash (erase-flash)"
 	@echo "  make clean          # xoá thư mục build"
+	@echo "  make bfm            # build, flash và mở monitor"
+	@echo "  make efm            # erase flash và mở monitor"
 
 build:
 	$(IDF_PY) build
@@ -32,3 +34,11 @@ erase:
 clean:
 	@echo "Cleaning build artifacts..."
 	-$(IDF_PY) fullclean 2>/dev/null || rm -rf build
+
+bfm:
+	@echo "Building and flashing..."
+	$(IDF_PY) build && $(IDF_PY) -p $(PORT) -b $(BAUD) flash monitor
+
+efm:
+	@echo "Erasing flash and monitoring..."
+	$(IDF_PY) -p $(PORT) erase-flash && $(IDF_PY) -p $(PORT) monitor

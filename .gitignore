@@ -1,0 +1,56 @@
+# .gitignore for ESP-IDF projects
+
+# IDF build output
+/build/
+/build-*/
+*.elf
+*.map
+*.bin
+*.hex
+*.img
+
+# SDK config (local)
+sdkconfig
+sdkconfig.old
+
+# CMake / build system
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Component build dirs (if components built in-tree)
+components/*/build/
+
+# Python virtual env / caches
+.venv/
+venv/
+.env
+__pycache__/
+*.pyc
+*.pyo
+
+# PlatformIO
+.pio/
+.pioenvs/
+
+# IDEs / editors
+.vscode/
+*.code-workspace
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# ESP tools / local state
+.espressif/
+idf_tools.log
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*~
+.DS_Store
+Thumbs.db
