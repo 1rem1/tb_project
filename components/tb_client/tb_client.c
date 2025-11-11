@@ -117,8 +117,13 @@ esp_err_t tb_client_start(tb_client_handle_t handle) {
     }
 
     // Start MQTT client connection here...
-    handle->is_provisioned = (nvs_storage_load_token(handle->device_token, sizeof(handle->device_token)) == ESP_OK);
-    handle->is_claimed = (nvs_storage_load_token(handle->is_claimed ? "1" : "0", sizeof(handle->is_claimed)) == ESP_OK);
+    handle->is_provisioned = (nvs_storage_load_token("device_token", handle->device_token, sizeof(handle->device_token)) == ESP_OK);
+    
+    char claim_buffer[1];
+    if (nvs_storage_load_token("is_claimed", claim_buffer, sizeof(claim_buffer)) == ESP_OK)
+    {
+        handle->is_claimed = strncmp(claim_buffer, "1", sizeof(claim_buffer)) == 0;
+    }
 
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.hostname = THINGSBOARD_SERVER,
@@ -220,7 +225,7 @@ static void tb_mqtt_event_handler(void* handler_args, esp_event_base_t base, int
                     ESP_LOGI(TAG, "Starting device claiming");
                     tb_claiming_request(handle);
                     handle->is_claimed = true;
-                    nvs_storage_save_token("1");
+                    nvs_storage_save_token("is_claimed", "1");
                 }
             }
             break;
@@ -273,7 +278,7 @@ static void handle_provisioning_response(tb_client_handle_t handle, const char* 
         strncpy(handle->device_token, credentialsValue->valuestring, sizeof(handle->device_token)-1);
         handle->device_token[sizeof(handle->device_token)-1] = '\0';
 
-        if (nvs_storage_save_token(handle->device_token) == ESP_OK)
+        if (nvs_storage_save_token("device_token", handle->device_token) == ESP_OK)
         {
             // Save the token
             ESP_LOGI(TAG, "Save to the NVS. Restart MQTT...");
@@ -375,7 +380,7 @@ static void tb_claiming_request(tb_client_handle_t handle)
         return;
     }
 
-    cJSON_AddStringToObject(root, "secretKey", PROVISION_DEVICE_SECRET);
+    cJSON_AddStringToObject(root, "secretKey", "abcd1234");
     cJSON_AddNumberToObject(root, "durationMs", 60000);
 
     char *json = cJSON_PrintUnformatted(root);

@@ -46,10 +46,10 @@ esp_err_t nvs_storage_init(void)
     return err;
 }
 
-esp_err_t nvs_storage_save_token(const char* token)
+
+esp_err_t nvs_storage_save_token(const char* key, const char* value)
 {
-    if (!s_initialized || !s_nvs_mutex)
-    {
+    if (!s_initialized || !s_nvs_mutex) {
         ESP_LOGE(TAG, "NVS storage not initialized");
         return ESP_ERR_INVALID_STATE;
     }
@@ -59,10 +59,12 @@ esp_err_t nvs_storage_save_token(const char* token)
     
     if (xSemaphoreTake(s_nvs_mutex, portMAX_DELAY) == pdTRUE)
     {
-        err = nvs_open("storage", NVS_READWRITE, &handle);
+        // "storage" là tên "ngăn kéo" (namespace)
+        err = nvs_open("storage", NVS_READWRITE, &handle); 
         if (err == ESP_OK)
         {
-            err = nvs_set_str(handle, "creValue", token);
+            // *** ĐÂY LÀ THAY ĐỔI: Dùng 'key' thay vì "creValue" ***
+            err = nvs_set_str(handle, key, value); 
             if (err == ESP_OK)
             {
                 err = nvs_commit(handle);
@@ -70,20 +72,18 @@ esp_err_t nvs_storage_save_token(const char* token)
             nvs_close(handle);
         }
         xSemaphoreGive(s_nvs_mutex);
-
         return err;
     }
-
-
-    ESP_LOGE(TAG, "Failed to take NVS mutex");
-    return ESP_FAIL;  
+    else
+    {
+        ESP_LOGE(TAG, "Failed to take NVS mutex");
+        return ESP_FAIL;  
+    }
 }
 
-// nvs_storage_load_token implementation
-esp_err_t nvs_storage_load_token(char* buffer, size_t buffer_size)
+esp_err_t nvs_storage_load_token(const char* key, char* out_buffer, size_t buffer_size)
 {
-    if (!s_initialized || !s_nvs_mutex)
-    {
+    if (!s_initialized || !s_nvs_mutex) {
         ESP_LOGE(TAG, "NVS storage not initialized");
         return ESP_ERR_INVALID_STATE;
     }
@@ -97,10 +97,10 @@ esp_err_t nvs_storage_load_token(char* buffer, size_t buffer_size)
         if (err == ESP_OK)
         {
             size_t required_size = 0;
-            err = nvs_get_str(handle, "creValue", NULL, &required_size);
+            err = nvs_get_str(handle, key, NULL, &required_size); 
             if (err == ESP_OK && required_size <= buffer_size)
             {
-                err = nvs_get_str(handle, "creValue", buffer, &required_size);
+                err = nvs_get_str(handle, key, out_buffer, &required_size);
             }
             else if (err == ESP_OK)
             {
@@ -109,18 +109,11 @@ esp_err_t nvs_storage_load_token(char* buffer, size_t buffer_size)
             nvs_close(handle);
         }
         xSemaphoreGive(s_nvs_mutex);
-
     }
-    
     else
     {
         ESP_LOGE(TAG, "Failed to take NVS mutex");
         err = ESP_FAIL;
-    }
-
-    if (err == ESP_ERR_NVS_NOT_FOUND)
-    {
-        return err;
     }
 
     return err;
