@@ -29,11 +29,14 @@ void app_main(void)
     // ESP_ERROR_CHECK(esp_event_loop_create_default());
     wifi_prov_start();
 
+
+    char device_name[12];
+    nvs_storage_load_token("device_name", device_name, sizeof(device_name));
     tb_client_config_t tb_config = {
+        .device_name = device_name,
         .server_url = "demo.thingsboard.io:1883",
         .provision_key = "bxplopnphlyifce1t5hu",
         .provision_secret = "nehbgo7f824oj2vztjew",
-        .device_name = "ESP_DEVICE_003",
     };
 
     g_tb_client = tb_client_init(&tb_config);

@@ -222,6 +222,7 @@ static void get_device_service_name(char *service_name, size_t max)
     esp_wifi_get_mac(WIFI_IF_STA, eth_mac);
     snprintf(service_name, max, "%s%02X%02X%02X",
              ssid_prefix, eth_mac[3], eth_mac[4], eth_mac[5]);
+    nvs_storage_save_token("device_name", service_name);
 }
 
 /* Handler for the optional provisioning endpoint registered by the application.
